@@ -103,7 +103,7 @@ function updateClockFace({ days, hours, minutes, seconds }) {
 }
 
 // Стелизуем часы
-
+console.log();
 // refs.fieldEl.forEach(el => {
 //   el.style.display = 'flex';
 //   el.style.flexDirection = 'column';
