@@ -1,18 +1,18 @@
 // import { Notify } from 'notiflix/build/notiflix-notify-aio';
-import flatpickr from "flatpickr";
-import "flatpickr/dist/flatpickr.min.css";
+import flatpickr from 'flatpickr';
+import 'flatpickr/dist/flatpickr.min.css';
 
 let selectedTime = null;
 
 // Создаем объект с переменными
 
 const refs = {
-  inputDate: document.querySelector("#datetime-picker"),
-  startBtn: document.querySelector("button[data-start]"),
-  days: document.querySelector("span[data-days]"),
-  hours: document.querySelector("span[data-hours]"),
-  minutes: document.querySelector("span[data-minutes]"),
-  seconds: document.querySelector("span[data-seconds]"),
+  inputDate: document.querySelector('#datetime-picker'),
+  startBtn: document.querySelector('button[data-start]'),
+  days: document.querySelector('span[data-days]'),
+  hours: document.querySelector('span[data-hours]'),
+  minutes: document.querySelector('span[data-minutes]'),
+  seconds: document.querySelector('span[data-seconds]'),
   // fieldEl: document.querySelectorAll('.field'),
 };
 
@@ -23,7 +23,7 @@ refs.startBtn.disabled = true;
 // Вешаем слушателя на форму
 
 function pad(value) {
-  return String(value).padStart(2, "0");
+  return String(value).padStart(2, '0');
 }
 
 function convertMs(ms) {
@@ -57,7 +57,7 @@ const options = {
 
   onClose(selectedDates) {
     if (selectedDates[0] < new Date()) {
-      window.alert("Please choose a date in the future");
+      window.alert('Please choose a date in the future');
       selectedDates[0] = new Date();
     } else {
       refs.startBtn.disabled = false;
@@ -74,19 +74,19 @@ flatpickr(refs.inputDate, options);
 
 // Вешаем слушателя на кнопку "Старт"
 
-refs.startBtn.addEventListener("click", () => {
+refs.startBtn.addEventListener('click', () => {
   startTimer();
 });
 
 // Запускаем таймер
 
 function startTimer() {
-  setInterval(() => {
+  timeinterval = setInterval(() => {
     const currentTime = Date.now();
     const deltaTime = selectedTime - currentTime;
     const time = convertMs(deltaTime);
     updateClockFace(time);
-    if (deltaTime <= 0) {
+    if (deltaTime < 1000) {
       clearInterval(timeinterval);
     }
   }, 1000);
