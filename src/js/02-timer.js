@@ -81,7 +81,7 @@ refs.startBtn.addEventListener('click', () => {
 // Запускаем таймер
 
 function startTimer() {
-  timeinterval = setInterval(() => {
+  let timeinterval = setInterval(() => {
     const currentTime = Date.now();
     const deltaTime = selectedTime - currentTime;
     const time = convertMs(deltaTime);
@@ -103,7 +103,6 @@ function updateClockFace({ days, hours, minutes, seconds }) {
 }
 
 // Стелизуем часы
-console.log('test');
 // refs.fieldEl.forEach(el => {
 //   el.style.display = 'flex';
 //   el.style.flexDirection = 'column';
