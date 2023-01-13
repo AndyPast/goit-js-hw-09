@@ -80,8 +80,10 @@ refs.startBtn.addEventListener('click', () => {
 
 // Запускаем таймер
 
+let timeinterval;
+
 function startTimer() {
-  let timeinterval = setInterval(() => {
+  timeinterval = setInterval(() => {
     const currentTime = Date.now();
     const deltaTime = selectedTime - currentTime;
     const time = convertMs(deltaTime);
